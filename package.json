@@ -58,7 +58,7 @@
         "deb"
       ],
       "executableName": "astro-ssr-app",
-      "compression": "normal"
+      "compression": "gz"
     }
   }
 }
