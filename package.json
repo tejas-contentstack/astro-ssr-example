@@ -57,8 +57,9 @@
         "AppImage",
         "deb"
       ],
-      "executableName": "astro-ssr-app",
-      "compression": "gz"
+      "category": "Development",
+      "maintainer": "tejas.talekar@contentstack.com",
+      "vendor": "Tejas Talekar"
     }
   }
 }
