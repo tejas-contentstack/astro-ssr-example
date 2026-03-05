@@ -1,16 +1,48 @@
 {
   "name": "ssr",
-  "type": "module",
   "version": "0.0.1",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:start": "npm run build && electron ."
   },
   "dependencies": {
     "@astrojs/node": "^5.3.3",
     "astro": "^2.5.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^40.7.0",
+    "electron-builder": "^26.8.1",
+    "wait-on": "^9.0.4"
+  },
+  "build": {
+    "appId": "com.astro.ssr",
+    "productName": "Astro SSR App",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
   }
 }
