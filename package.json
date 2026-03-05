@@ -28,7 +28,8 @@
   },
   "build": {
     "appId": "com.astro.ssr",
-    "productName": "Astro SSR App",
+    "productName": "AstroSSRApp",
+    "executableName": "astro-ssr-app",
     "files": [
       "dist/**/*",
       "electron/**/*",
@@ -55,7 +56,9 @@
       "target": [
         "AppImage",
         "deb"
-      ]
+      ],
+      "executableName": "astro-ssr-app",
+      "compression": "normal"
     }
   }
 }
